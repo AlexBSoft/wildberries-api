@@ -1,0 +1,17 @@
+{
+  "name": "wildberries-api",
+  "version": "1.0.50",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "bun run --watch src/index.ts"
+  },
+  "dependencies": {
+    "@elysiajs/swagger": "^0.8.3",
+    "elysia": "latest",
+    "wb-private-api": "^0.6.4"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "module": "src/index.js"
+}
