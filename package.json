@@ -6,6 +6,7 @@
     "dev": "bun run --watch src/index.ts"
   },
   "dependencies": {
+    "@elysiajs/cors": "^0.8.0",
     "@elysiajs/swagger": "^0.8.3",
     "elysia": "latest",
     "wb-private-api": "^0.6.4"

@@ -1,11 +1,13 @@
 import { Elysia } from "elysia";
 import { swagger } from '@elysiajs/swagger'
+import { cors } from '@elysiajs/cors'
 import { WBPrivateAPI, Constants, WBProduct } from "wb-private-api";
 
 const destination = Constants.DESTINATIONS.MOSCOW;
 const wbapi = new WBPrivateAPI({ destination });
 
 const app = new Elysia()
+  .use(cors())
   .use(swagger())
   .get("/", () => "Hello parser")
   .get('/product/:id', async ({ params: { id } }) => {
