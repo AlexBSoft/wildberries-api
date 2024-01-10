@@ -7,8 +7,27 @@ const wbapi = new WBPrivateAPI({ destination });
 
 const app = new Elysia()
   .use(swagger())
-  .get("/", () => "Hello parser").
-  get('/feedbacks/:id', async ({ params: { id } }) => {
+  .get("/", () => "Hello parser")
+  .get('/product/:id', async ({ params: { id } }) => {
+    const product = await WBProduct.create(Number(id));
+    return product;
+  })
+  .get('/stocks/:id', async ({ params: { id } }) => {
+    const product = await WBProduct.create(Number(id));
+    const stocks = await product.getStocks();
+    return stocks;
+  })
+  .get('/promo/:id', async ({ params: { id } }) => {
+    const product = await WBProduct.create(Number(id));
+    const promos = await product.getPromo();
+    return promos;
+  })
+  .get('/questions/:id', async ({ params: { id } }) => {
+    const product = await WBProduct.create(Number(id));
+    const questions = await product.getQuestions();
+    return questions;
+  })
+  .get('/feedbacks/:id', async ({ params: { id } }) => {
     const product = await WBProduct.create(Number(id));
     const feedbacks = await product.getFeedbacks();
     return feedbacks;
